@@ -1,0 +1,4 @@
+[ubuntu]
+172.31.10.93 name=node
+[centos]
+138290 name=node2
