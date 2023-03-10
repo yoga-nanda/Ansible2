@@ -1,4 +1,5 @@
-- name: test inventory
+---
+- name: install apache server
   hosts: Ubuntu
   become: yes
   tasks:
@@ -15,7 +16,7 @@
         dest: /var/www/html/info.php
     - name: install php modules
       ansible.builtin.apt:
-        name: 
+        name:
           - php
           - libapache2-mod-php
           - php-mysql
