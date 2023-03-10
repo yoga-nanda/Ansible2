@@ -7,7 +7,7 @@
         update_cache: yes
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
-      notify: 
+      notify: enable and restart apache2
     - name: copy file to dest
       ansible.builtin.copy:
         src: context.txt
