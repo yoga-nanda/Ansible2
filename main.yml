@@ -1,7 +1,6 @@
--name: testing inventory
- hosts: ubuntu
- become: yes
- tasks:
-   - name: debug inventory
-     ansible.builtin.debug:
-     var: name
+- name: test inventory
+  hosts: ubuntu
+  tasks:
+    - name: print my variable
+      ansible.builtin.debug:
+        var: name
