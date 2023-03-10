@@ -14,6 +14,7 @@
       ansible.builtin.copy:
         src: context.txt
         dest: /var/www/html/info.php
+        remote_src: yes
     - name: install php modules
       ansible.builtin.apt:
         name:
