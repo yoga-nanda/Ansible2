@@ -12,9 +12,8 @@
         - enable and restart apache2
     - name: copy file to dest
       ansible.builtin.copy:
-        src: context.txt
+        src: context.php
         dest: /var/www/html/info.php
-        remote_src: yes
     - name: install php modules
       ansible.builtin.apt:
         name:
