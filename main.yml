@@ -1,5 +1,6 @@
 - name: test inventory
   hosts: Ubuntu
+  become: yes
   tasks:
     - name: Install apache httpd
       ansible.builtin.apt:
