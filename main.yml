@@ -1,5 +1,5 @@
 - name: install apache server
-  hosts: Ubuntu
+  hosts: all
   become: yes
   tasks:
     - name: Install apache httpd
@@ -20,9 +20,9 @@
           - php
           - libapache2-mod-php
           - php-mysql
-    Handlers:
-      - name: enable and restart apache2
-        ansible.builtin.systemd:
-          name: apache2
-          enabled: yes
-          state: restarted
+  handlers:
+    - name: enable and restart apache2
+      ansible.builtin.systemd:
+        name: apache2
+        enabled: yes
+        state: restarted
