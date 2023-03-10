@@ -1,5 +1,5 @@
 -name: testing inventory
- hosts: all
+ hosts: ubuntu
  become: yes
  tasks:
    - name: debug inventory
