@@ -1,6 +1,26 @@
 - name: test inventory
   hosts: all
   tasks:
-    - name: print my variable
-      ansible.builtin.debug:
-        var: name
+    - name: Install apache httpd
+      ansible.builtin.apt:
+        name: apache2
+        update_cache: yes
+        state: present
+      when: ansible_facts['distribution'] == "Ubuntu"
+      notify: 
+    - name: copy file to dest
+      ansible.builtin.copy:
+        src: context.txt
+        dest: /var/www/html/info.php
+    - name: install php modules
+      ansible.builtin.apt:
+        name: 
+          - php
+          - libapache2-mod-php
+          - php-mysql
+    handlers:
+    - name: enable and restart apache2
+      ansible.builtin.systemd:
+        name: apache2
+        enabled: yes
+        state: restarted
